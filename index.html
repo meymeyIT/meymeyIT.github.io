@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rin Reaksmey | Web Developer Portfolio — Laravel, Node.js, React</title>
+  <meta name="description" content="Portfolio of Rin Reaksmey, a Year 4 Computer Science student at NPIC and Web Developer in Phnom Penh, Cambodia, building full-stack web applications with Laravel, PHP, Node.js, React, MySQL and PostgreSQL." />
+  <meta name="author" content="Rin Reaksmey" />
+  <meta name="theme-color" content="#0d0d0d" />
+
+  <!-- Open Graph (link previews on Facebook, Telegram, LinkedIn) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Rin Reaksmey | Web Developer" />
+  <meta property="og:description" content="Full-stack web developer building with Laravel, Node.js, React, MySQL and PostgreSQL." />
+  <meta property="og:image" content="assets/images/profile.jpg" />
+
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+
+  <!-- Fonts & icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/vendor/fontawesome/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="assets/vendor/fontawesome/css/solid.min.css" />
+  <link rel="stylesheet" href="assets/vendor/fontawesome/css/brands.min.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Page loader -->
+  <div class="loader" id="loader" aria-hidden="true"><div class="loader__ring"></div></div>
+  <script>
+    /* Hide the loader as soon as the HTML is ready, even if another script has an error. */
+    (function () {
+      var hide = function () { var l = document.getElementById("loader"); if (l) l.classList.add("hidden"); };
+      document.addEventListener("DOMContentLoaded", function () { setTimeout(hide, 300); });
+      setTimeout(hide, 3000);
+    })();
+  </script>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ================= NAVIGATION ================= -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="#home" class="nav__logo" aria-label="Rin Reaksmey — home">
+        <span class="nav__logo-mark">Rin</span><span>Reaksmey<span class="text-accent">.</span></span>
+      </a>
+
+      <ul class="nav__menu" id="nav-menu">
+        <li><a href="#home" class="nav__link active">Home</a></li>
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#skills" class="nav__link">Skills</a></li>
+        <li><a href="#services" class="nav__link">Services</a></li>
+        <li><a href="#projects" class="nav__link">Projects</a></li>
+        <li><a href="#education" class="nav__link">Education</a></li>
+        <li><a href="#experience" class="nav__link">Experience</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+
+      <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ================= HERO ================= -->
+    <section class="hero section" id="home">
+      <div class="hero__bg" aria-hidden="true"><span class="blob blob--1"></span><span class="blob blob--2"></span><span class="blob blob--3"></span></div>
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="hero__hello reveal">Open to junior web developer roles</p>
+          <h1 class="hero__name reveal">Rin Reaksmey<span class="text-accent">.</span></h1>
+          <h2 class="hero__role reveal">
+            &gt; <span class="typing" id="typing" aria-live="polite">Web Developer</span><span class="cursor" aria-hidden="true">|</span>
+          </h2>
+          <p class="hero__text reveal">
+            Year 4 Computer Science student at the National Polytechnic Institute of Cambodia (NPIC).
+            I build full-stack web applications with Laravel, Node.js, React, MySQL and PostgreSQL,
+            from database design to a polished, responsive interface.
+          </p>
+          <div class="hero__actions reveal">
+            <a href="#projects" class="btn btn--primary"><i class="fa-solid fa-rocket"></i> View My Projects</a>
+            <a href="assets/documents/cv.pdf" class="btn btn--outline" id="download-cv" download="CV_Rin_Reaksmey.pdf"><i class="fa-solid fa-download"></i> Download CV</a>
+          </div>
+          <ul class="socials reveal" data-socials aria-label="Social links"></ul>
+        </div>
+
+        <div class="hero__visual reveal">
+          <div class="hero__img-wrap">
+            <img src="assets/images/profile.jpg" alt="Portrait of Rin Reaksmey" class="hero__img" width="600" height="600" fetchpriority="high" />
+          </div>
+          <div class="hero__badge hero__badge--1"><i class="fa-brands fa-laravel"></i> Laravel</div>
+          <div class="hero__badge hero__badge--2"><i class="fa-brands fa-node-js"></i> Node.js</div>
+          <div class="hero__badge hero__badge--3"><i class="fa-brands fa-react"></i> React</div>
+        </div>
+      </div>
+      <a href="#about" class="scroll-down" aria-label="Scroll to About section"><span></span></a>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__tag">Get to know me</span>
+          <h2 class="section__title">About Me</h2>
+        </header>
+
+        <div class="about__grid">
+          <div class="about__img reveal">
+            <div class="about__photo"><img src="assets/images/profile.jpg" alt="Rin Reaksmey" loading="lazy" width="600" height="600" /></div>
+            <div class="about__exp">
+              <strong>4th</strong><span>Year CS<br />Student</span>
+            </div>
+          </div>
+
+          <div class="about__content">
+            <h3 class="reveal">A motivated developer who loves turning ideas into working systems.</h3>
+            <p class="reveal">
+              I'm a Year 4 Computer Science student at NPIC in Phnom Penh. Over the past years I've moved from
+              simple HTML pages to complete management systems: a restaurant ordering system for a real café (my final-year thesis),
+              an inventory system in Laravel 12, a school management system in PHP, and an e-commerce store.
+            </p>
+            <p class="reveal">
+              <strong>Career goal:</strong> to start as a Junior Web Developer in a team where I can ship real features,
+              learn from senior engineers, and grow into a strong full-stack developer.
+              <strong>Interests:</strong> backend APIs, database design, real-time apps and cross-platform mobile development.
+            </p>
+
+            <ul class="about__info reveal">
+              <li><i class="fa-solid fa-user"></i><span>Name</span><strong>Rin Reaksmey</strong></li>
+              <li><i class="fa-solid fa-graduation-cap"></i><span>Study</span><strong>B.Sc. Computer Science, NPIC</strong></li>
+              <li><i class="fa-solid fa-location-dot"></i><span>Location</span><strong data-field="location"></strong></li>
+              <li><i class="fa-solid fa-envelope"></i><span>Email</span><strong data-field="email"></strong></li>
+              <li><i class="fa-solid fa-language"></i><span>Languages</span><strong>Khmer, English</strong></li>
+              <li><i class="fa-solid fa-briefcase"></i><span>Status</span><strong class="status-open">Open to work</strong></li>
+            </ul>
+
+            <div class="stats reveal">
+              <div class="stat"><strong data-count="6">0</strong><span>Projects built</span></div>
+              <div class="stat"><strong data-count="15" data-suffix="+">0</strong><span>Technologies</span></div>
+              <div class="stat"><strong data-count="3" data-suffix="+">0</strong><span>Years coding</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section class="section section--alt" id="skills">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__tag">What I work with</span>
+          <h2 class="section__title">Technical Skills</h2>
+          <p class="section__sub">Technologies I've used to build real projects, from interface to database.</p>
+        </header>
+        <div class="skills__grid" id="skills-grid"></div>
+
+        <div class="skills__extra">
+          <div class="card reveal">
+            <h3 class="card__title"><i class="fa-solid fa-handshake"></i> Soft Skills</h3>
+            <ul class="chips" id="soft-skills"></ul>
+          </div>
+          <div class="card reveal">
+            <h3 class="card__title"><i class="fa-solid fa-language"></i> Languages</h3>
+            <ul class="lang-list" id="languages"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICES ================= -->
+    <section class="section" id="services">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__tag">What I can do</span>
+          <h2 class="section__title">My Services</h2>
+        </header>
+        <div class="services__grid" id="services-grid"></div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section class="section section--alt" id="projects">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__tag">Portfolio</span>
+          <h2 class="section__title">My Projects</h2>
+          <p class="section__sub">A selection of systems I've designed and built.</p>
+        </header>
+        <div class="filters reveal" id="project-filters" role="tablist" aria-label="Filter projects by category"></div>
+        <div class="projects__grid" id="projects-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ================= EDUCATION ================= -->
+    <section class="section" id="education">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__tag">Learning path</span>
+          <h2 class="section__title">Education</h2>
+        </header>
+        <div class="timeline" id="education-timeline"></div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section class="section section--alt" id="experience">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__tag">Practical work</span>
+          <h2 class="section__title">My Experience</h2>
+          <p class="section__sub">Hands-on project and team experience.</p>
+        </header>
+        <div class="timeline" id="experience-timeline"></div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="section" id="contact">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="section__tag">Let's talk</span>
+          <h2 class="section__title">Contact Me</h2>
+          <p class="section__sub">Have a job opportunity or a project? I'd love to hear from you.</p>
+        </header>
+
+        <div class="contact__grid">
+          <aside class="contact__info reveal">
+            <a class="contact__item" data-href="mailto" href="#">
+              <i class="fa-solid fa-envelope"></i><div><span>Email</span><strong data-field="email"></strong></div>
+            </a>
+            <a class="contact__item" data-href="tel" href="#">
+              <i class="fa-solid fa-phone"></i><div><span>Phone</span><strong data-field="phone"></strong></div>
+            </a>
+            <div class="contact__item">
+              <i class="fa-solid fa-location-dot"></i><div><span>Location</span><strong data-field="location"></strong></div>
+            </div>
+            <ul class="socials" data-socials aria-label="Social links"></ul>
+          </aside>
+
+          <form class="form card reveal" id="contact-form" novalidate>
+            <div class="form__row">
+              <div class="form__group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="from_name" autocomplete="name" placeholder="Your full name" required />
+                <small class="form__error" aria-live="polite"></small>
+              </div>
+              <div class="form__group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="reply_to" autocomplete="email" placeholder="you@example.com" required />
+                <small class="form__error" aria-live="polite"></small>
+              </div>
+            </div>
+            <div class="form__group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Job opportunity, project, question…" required />
+              <small class="form__error" aria-live="polite"></small>
+            </div>
+            <div class="form__group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" placeholder="Write your message…" required></textarea>
+              <small class="form__error" aria-live="polite"></small>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block" id="submit-btn">
+              <span class="btn__label"><i class="fa-solid fa-paper-plane"></i> Send Message</span>
+              <span class="btn__spinner" aria-hidden="true"></span>
+            </button>
+            <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a href="#home" class="nav__logo"><span class="nav__logo-mark">R</span><span>Rin Reaksmey</span></a>
+        <p class="footer__text">Web Developer building full-stack applications with Laravel, Node.js and React.</p>
+        <ul class="socials" data-socials aria-label="Social links"></ul>
+      </div>
+      <nav aria-label="Footer navigation">
+        <h3 class="footer__title">Quick Links</h3>
+        <ul class="footer__links">
+          <li><a href="#home">Home</a></li><li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li><li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li><li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li><li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h3 class="footer__title">Contact</h3>
+        <ul class="footer__contact">
+          <li><i class="fa-solid fa-envelope"></i> <span data-field="email"></span></li>
+          <li><i class="fa-solid fa-phone"></i> <span data-field="phone"></span></li>
+          <li><i class="fa-solid fa-location-dot"></i> <span data-field="location"></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
