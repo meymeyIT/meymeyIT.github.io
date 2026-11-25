@@ -12,9 +12,32 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Rin Reaksmey | Web Developer" />
   <meta property="og:description" content="Full-stack web developer building with Laravel, Node.js, React, MySQL and PostgreSQL." />
-  <meta property="og:image" content="assets/images/profile.jpg" />
+  <meta property="og:image" content="https://meymeyit.github.io/assets/images/profile.jpg" />
 
+  <link rel="canonical" href="https://meymeyit.github.io/" />
+  <meta property="og:url" content="https://meymeyit.github.io/" />
+  <meta name="twitter:card" content="summary" />
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+
+  <!-- Structured data: helps Google show your name, job title and links -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Rin Reaksmey",
+    "jobTitle": "Web Developer",
+    "url": "https://meymeyit.github.io/",
+    "image": "https://meymeyit.github.io/assets/images/profile.jpg",
+    "email": "mailto:rreaksmey236@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Phnom Penh", "addressCountry": "KH" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "National Polytechnic Institute of Cambodia (NPIC)" },
+    "knowsAbout": ["Laravel", "PHP", "Node.js", "React", "MySQL", "PostgreSQL", "JavaScript"],
+    "sameAs": ["https://github.com/meymeyIT"]
+  }
+  </script>
+
+  <!-- Marks that JavaScript is on, so scroll animations start hidden (no flash) -->
+  <script>document.documentElement.classList.add("js");</script>
 
   <!-- Fonts & icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,7 +57,13 @@
     (function () {
       var hide = function () { var l = document.getElementById("loader"); if (l) l.classList.add("hidden"); };
       document.addEventListener("DOMContentLoaded", function () { setTimeout(hide, 300); });
-      setTimeout(hide, 3000);
+      setTimeout(function () {
+        hide();
+        // Safety: if script.js could not start, show all content instead of leaving it hidden
+        if (!document.documentElement.classList.contains("js-ready")) {
+          document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("visible"); });
+        }
+      }, 3000);
     })();
   </script>
 
@@ -70,7 +99,7 @@
       <div class="hero__bg" aria-hidden="true"><span class="blob blob--1"></span><span class="blob blob--2"></span><span class="blob blob--3"></span></div>
       <div class="container hero__grid">
         <div class="hero__content">
-          <p class="hero__hello reveal"> web developer </p>
+          <p class="hero__hello reveal">Web Developer </p>
           <h1 class="hero__name reveal">Rin Reaksmey<span class="text-accent">.</span></h1>
           <h2 class="hero__role reveal">
             &gt; <span class="typing" id="typing" aria-live="polite">Web Developer</span><span class="cursor" aria-hidden="true">|</span>
@@ -82,18 +111,29 @@
           </p>
           <div class="hero__actions reveal">
             <a href="#projects" class="btn btn--primary"><i class="fa-solid fa-rocket"></i> View My Projects</a>
-            <a href="assets/documents/cv.pdf" class="btn btn--outline" id="download-cv" download="CV_Rin_Reaksmey.pdf"><i class="fa-solid fa-download"></i> Download CV</a>
+            <a href="assets/documents/cv.pdf" class="btn btn--outline" id="download-cv" data-cv-link download="CV_Rin_Reaksmey.pdf"><i class="fa-solid fa-download"></i> Download CV</a>
           </div>
           <ul class="socials reveal" data-socials aria-label="Social links"></ul>
         </div>
 
+        <!-- Animated portrait: light ring, orbiting tech badges, 3D tilt (see css "7b" and js initHeroTilt) -->
         <div class="hero__visual reveal">
-          <div class="hero__img-wrap">
-            <img src="assets/images/profile.jpg" alt="Portrait of Rin Reaksmey" class="hero__img" width="600" height="600" fetchpriority="high" />
+          <div class="hero__tilt" id="hero-tilt">
+            <div class="hero__glow" aria-hidden="true"></div>
+            <div class="hero__img-wrap">
+              <div class="hero__photo">
+                <img src="assets/images/profile.jpg" alt="Portrait of Rin Reaksmey" class="hero__img" width="600" height="600" fetchpriority="high" />
+              </div>
+            </div>
+            <div class="hero__orbit" aria-hidden="true">
+              <span class="orbit__item" style="--a: -90deg"><span class="hero__badge"><i class="fa-brands fa-laravel"></i> Laravel</span></span>
+              <span class="orbit__item" style="--a: -18deg"><span class="hero__badge"><i class="fa-brands fa-react"></i> React</span></span>
+              <span class="orbit__item" style="--a: 54deg"><span class="hero__badge"><i class="fa-solid fa-database"></i> MySQL</span></span>
+              <span class="orbit__item" style="--a: 126deg"><span class="hero__badge"><i class="fa-brands fa-node-js"></i> Node.js</span></span>
+              <span class="orbit__item" style="--a: 198deg"><span class="hero__badge"><i class="fa-brands fa-php"></i> PHP</span></span>
+            </div>
+            <span class="hero__status"><span class="hero__status-dot"></span> Available for work</span>
           </div>
-          <div class="hero__badge hero__badge--1"><i class="fa-brands fa-laravel"></i> Laravel</div>
-          <div class="hero__badge hero__badge--2"><i class="fa-brands fa-node-js"></i> Node.js</div>
-          <div class="hero__badge hero__badge--3"><i class="fa-brands fa-react"></i> React</div>
         </div>
       </div>
       <a href="#about" class="scroll-down" aria-label="Scroll to About section"><span></span></a>
@@ -237,6 +277,10 @@
             <div class="contact__item">
               <i class="fa-solid fa-location-dot"></i><div><span>Location</span><strong data-field="location"></strong></div>
             </div>
+            <div class="contact__cv">
+              <p><strong>Prefer reading a CV?</strong><span>One page: skills, projects and education.</span></p>
+              <a href="assets/documents/cv.pdf" class="btn btn--primary btn--sm" data-cv-link download="CV_Rin_Reaksmey.pdf"><i class="fa-solid fa-download"></i> Download CV</a>
+            </div>
             <ul class="socials" data-socials aria-label="Social links"></ul>
           </aside>
 
@@ -278,7 +322,7 @@
   <footer class="footer">
     <div class="container footer__grid">
       <div>
-        <a href="#home" class="nav__logo"><span class="nav__logo-mark">R</span><span>Rin Reaksmey</span></a>
+        <a href="#home" class="nav__logo" aria-label="Rin Reaksmey — back to top"><span class="nav__logo-mark">Rin</span><span>Reaksmey<span class="text-accent">.</span></span></a>
         <p class="footer__text">Web Developer building full-stack applications with Laravel, Node.js and React.</p>
         <ul class="socials" data-socials aria-label="Social links"></ul>
       </div>
@@ -299,8 +343,6 @@
           <li><i class="fa-solid fa-location-dot"></i> <span data-field="location"></span></li>
         </ul>
       </div>
-    </div>
-    <div class="footer__bottom container">
     </div>
   </footer>
 

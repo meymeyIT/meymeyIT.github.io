@@ -43,11 +43,10 @@ function renderProfileFields() {
   $$('[data-href="mailto"]').forEach((el) => (el.href = `mailto:${profile.email}`));
   $$('[data-href="tel"]').forEach((el) => (el.href = `tel:${profile.phone.replace(/\s+/g, "")}`));
 
-  const cvLink = $("#download-cv");
-  if (cvLink) {
-    cvLink.href = profile.cvFile;
-    cvLink.setAttribute("download", profile.cvDownloadName);
-  }
+  $$("[data-cv-link]").forEach((link) => {
+    link.href = profile.cvFile;
+    link.setAttribute("download", profile.cvDownloadName);
+  });
 
 }
 
@@ -140,6 +139,7 @@ function renderProjects() {
         <div class="project__body">
           <h3 class="project__title">${escapeHTML(p.title)}</h3>
           <p class="project__desc">${escapeHTML(p.description)}</p>
+          ${p.highlights && p.highlights.length ? `<ul class="project__highlights" aria-label="Key features">${p.highlights.map((h) => `<li>${escapeHTML(h)}</li>`).join("")}</ul>` : ""}
           <ul class="project__tech" aria-label="Technologies used">${p.tech.map((t) => `<li>${escapeHTML(t)}</li>`).join("")}</ul>
           <div class="project__links">
             ${projectLinkButton(p.demo, "Live Demo", "fa-solid fa-arrow-up-right-from-square", "Demo soon")}
@@ -358,6 +358,28 @@ function initScrollReveal() {
 }
 
 /* ---------------------------------------------------------------------
+   Hero portrait: gentle 3D tilt that follows the mouse (desktop only)
+   --------------------------------------------------------------------- */
+function initHeroTilt() {
+  const hero = $("#home");
+  const tilt = $("#hero-tilt");
+  if (!hero || !tilt || prefersReducedMotion || !window.matchMedia("(pointer: fine)").matches) return;
+
+  let frame = null;
+  hero.addEventListener("mousemove", (event) => {
+    if (frame) return;
+    frame = requestAnimationFrame(() => {
+      const rect = tilt.getBoundingClientRect();
+      const x = (event.clientX - (rect.left + rect.width / 2)) / window.innerWidth;  // -0.5 … 0.5
+      const y = (event.clientY - (rect.top + rect.height / 2)) / window.innerHeight;
+      tilt.style.transform = `perspective(900px) rotateY(${x * 22}deg) rotateX(${-y * 22}deg)`;
+      frame = null;
+    });
+  });
+  hero.addEventListener("mouseleave", () => (tilt.style.transform = ""));
+}
+
+/* ---------------------------------------------------------------------
    Back to top button
    --------------------------------------------------------------------- */
 function initBackToTop() {
@@ -370,9 +392,7 @@ function initBackToTop() {
    Download CV
    --------------------------------------------------------------------- */
 function initCvDownload() {
-  const link = $("#download-cv");
-  if (!link) return;
-  link.addEventListener("click", () => showToast("Downloading CV…"));
+  $$("[data-cv-link]").forEach((link) => link.addEventListener("click", () => showToast("Downloading CV…")));
 }
 
 /* ---------------------------------------------------------------------
@@ -490,6 +510,7 @@ function init() {
     banner.className = "dev-error";
     banner.innerHTML = "<strong>⚠ Portfolio data error:</strong> <code>js/data.js</code> has a typo (often a missing comma <code>,</code> or quote <code>\"</code>). Press <strong>F12 → Console</strong> to see the line number.";
     document.body.appendChild(banner);
+    $$(".reveal").forEach((el) => el.classList.add("visible")); // show what we can
     return;
   }
   document.documentElement.classList.add("js-ready");
@@ -507,6 +528,7 @@ function init() {
   initNavigation();
   initActiveLink();
   initTyping();
+  initHeroTilt();
   initScrollReveal();
   initBackToTop();
   initCvDownload();

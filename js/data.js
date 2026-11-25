@@ -119,7 +119,8 @@ const PORTFOLIO = {
      category must match one of the filter keys: "fullstack", "laravel", "mobile".
      To ADD a project: copy one object, change the values, save. Done.
      To REMOVE a project: delete its object.
-     image: put a screenshot in assets/images/projects/ and reference it here. */
+     image: put a screenshot in assets/images/projects/ and reference it here.
+     highlights: 2–3 short key features (optional). */
   projectFilters: [
     { key: "all", label: "All" },
     { key: "fullstack", label: "Full Stack" },
@@ -133,7 +134,8 @@ const PORTFOLIO = {
       status: "Final-year thesis",
       image: "assets/images/projects/zoom-garden-rms.svg",
       description:
-        "Food ordering and management system for Zoom Garden Café & Wine Restaurant. Customers scan a table QR code to order; kitchen, barista and cashier each get their own screen, with stock tracking and Telegram low-stock alerts.",
+        "Food ordering and management system for Zoom Garden Café & Wine Restaurant, built as my final-year thesis with a team of 4.",
+      highlights: ["Customers order by scanning a table QR code", "Separate screens for Admin, Kitchen, Barista and Cashier", "Stock tracking with Telegram low-stock alerts"],
       tech: ["React", "Vite", "Node.js", "Express", "Prisma", "PostgreSQL", "Socket.IO"],
       demo: "", // TODO: add live URL when deployed
       github: "", // TODO: add repo URL if public
@@ -144,7 +146,8 @@ const PORTFOLIO = {
       status: "Completed",
       image: "assets/images/projects/inventory-management.svg",
       description:
-        "Production-oriented inventory system for managing products, stock levels, purchases and sales, built in 10 phases with role-based access and an admin dashboard.",
+        "Production-oriented inventory system for managing products, stock levels, purchases and sales.",
+      highlights: ["Role-based access with an admin dashboard", "Built step by step in 10 planned phases", "Source code public on GitHub"],
       tech: ["Laravel 12", "PHP 8.2", "MySQL", "Blade", "Bootstrap 5"],
       demo: "",
       github: "https://github.com/meymeyIT/ims",
@@ -155,7 +158,8 @@ const PORTFOLIO = {
       status: "Completed",
       image: "assets/images/projects/school-management.svg",
       description:
-        "Admin, teacher and student portals for managing students, teachers, classes, subjects, attendance, grades and timetables, with CSRF protection and secure PDO queries.",
+        "Web portal that manages the daily work of a school for admins, teachers and students.",
+      highlights: ["Students, teachers, classes and subjects", "Attendance, grades and timetables", "CSRF protection and PDO prepared statements"],
       tech: ["PHP 8", "PDO", "MySQL", "Bootstrap 5", "JavaScript"],
       demo: "",
       github: "",
@@ -166,7 +170,8 @@ const PORTFOLIO = {
       status: "Academic project",
       image: "assets/images/projects/ecommerce-website.svg",
       description:
-        "Fully functional online store with user authentication, product search, multiple product images, shopping cart and checkout, plus an admin dashboard for products, categories, brands and orders.",
+        "Fully functional online store with a customer shop and an admin dashboard.",
+      highlights: ["Login, shopping cart and checkout", "Product search with multiple images per product", "Admin for products, categories, brands and orders"],
       tech: ["Laravel", "MySQL", "HTML", "CSS", "JavaScript"],
       demo: "",
       github: "",
@@ -177,7 +182,8 @@ const PORTFOLIO = {
       status: "In progress",
       image: "assets/images/projects/food-delivery.svg",
       description:
-        "Foodpanda-style platform with four apps (Customer, Rider, Restaurant, Admin) sharing one REST API, with JWT auth, real-time order tracking and KHQR payment planned.",
+        "Foodpanda-style platform with four apps sharing one REST API, built MVP-first.",
+      highlights: ["Customer, Rider, Restaurant and Admin apps", "One Flutter codebase for Android and iOS", "Planned: real-time tracking and KHQR payment"],
       tech: ["Flutter", "Node.js", "Express", "Prisma", "PostgreSQL", "Socket.IO"],
       demo: "",
       github: "",
@@ -188,7 +194,8 @@ const PORTFOLIO = {
       status: "Personal project",
       image: "assets/images/projects/flutter-shop.svg",
       description:
-        "Cross-platform shopping app with product browsing and cart, connected to a Node.js REST API and MongoDB, tested on both the Android emulator and real devices.",
+        "Cross-platform shopping app connected to my own Node.js REST API.",
+      highlights: ["Product browsing and shopping cart", "MongoDB database behind a REST API", "Tested on Android emulator and real devices"],
       tech: ["Flutter", "Node.js", "MongoDB", "REST API"],
       demo: "",
       github: "",
